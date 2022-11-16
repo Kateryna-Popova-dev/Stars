@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import svg from '../image/star-icon.svg'
+import Star from "./Star";
 
-export const Stars = (props) => {
+export const FunctionStars = (props) => {
     let [points, setPoints] = useState(props.points);
-    let [dynamicPoints, setDynamicPoints] = useState(0);
+    let [dynamicPoints, setDynamicPoints] = useState(props.points);
 
     const count = [1, 2, 3, 4, 5];
 
@@ -20,9 +20,9 @@ export const Stars = (props) => {
         onPointerOver={(event) => savePoints(event, setDynamicPoints)}
     >
         {count.map(i =>
-            <img id={`a${i}`} className={i <= dynamicPoints ? 'isActive' : null} src={svg} key={i}/>
+            <Star id={`a${i}`} className={i <= dynamicPoints ? 'isActive' : null} key={i}></Star>
         )}
     </div>;
 };
 
-export default Stars;
+export default FunctionStars;
